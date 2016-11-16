@@ -1,0 +1,4 @@
+#!/bin/bash
+# clean up stopped containers and untagged images
+docker rm $(docker ps -qa)
+docker rmi $(docker images | grep "^<none>" | awk '{print $3}')
